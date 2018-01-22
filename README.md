@@ -65,3 +65,10 @@ PhpMyAdmin has a login page where you need a mysql user. To allow login (with fu
 ```
 kubectl -n mysql exec mariadb-0 -- mysql -e "CREATE USER 'phpmyadmin'@'%' IDENTIFIED BY 'my-admin-pw'; GRANT ALL ON *.* TO 'phpmyadmin'@'%' WITH GRANT OPTION;"
 ```
+
+
+### Setup user for Kubernetes
+
+```
+kubectl exec mariadb-0 -- mysql -e "CREATE USER 'kube'@'%' IDENTIFIED BY 'svena_in_the_house'; GRANT ALL ON *.* TO 'kube'@'%' WITH GRANT OPTION;"
+```
