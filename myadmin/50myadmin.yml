@@ -1,0 +1,21 @@
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myadmin
+  namespace: mysql
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: myadmin
+    spec:
+      containers:
+        - name: phpmyadmin
+          image: phpmyadmin/phpmyadmin@sha256:95b005cf4c5f15ff670a31f576a50db8d164c6692752bda6176af3fea0e60812
+          ports:
+            - containerPort: 80
+          env:
+            - name: PMA_HOST
+              value: mysql
